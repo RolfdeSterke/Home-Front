@@ -33,6 +33,7 @@ class Todo extends Component {
         this.setState({todos: todos});
         this.setState({show_modal: null});
     }
+
     setTodosList(todos) {
         this.setState({todos: todos});
     }
@@ -84,7 +85,7 @@ class Todo extends Component {
 
     render() {
         if (this.state.todos === null) {
-            fetchTodoList(this.setTodosList)
+            fetchTodoList(this.setTodosList, this.props.hidden)
         }
 
         var modal = null;
@@ -140,7 +141,7 @@ class Todo extends Component {
             return (
                 <div className="Container">
                     <Row>
-                        <h1> Hey! this is your list!!</h1>
+                        <h1> Hey! this is your list!</h1>
                         <Button onClick={() => this.setModalToShow(-1)}>Create new</Button>
                     </Row>
                     {modal}

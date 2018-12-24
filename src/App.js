@@ -21,6 +21,12 @@ class App extends Component {
               <Route exact path='/robot' render={() => (
                 <Robot />
               )}/>
+              <Route exact path='/hidden' render={() => (
+                  <Todo hidden={true}/>
+              )}/>
+              <Route exact path='/' render={() => (
+                  <Todo hidden={false}/>
+              )}/>
               <Route exact path='/' render={() => (
                   <div>
                 <img src={logo} className="App-logo" alt="logo" />

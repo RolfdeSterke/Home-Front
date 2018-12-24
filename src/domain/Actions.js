@@ -9,12 +9,20 @@ export async function fetchMessage(message, returnValue) {
     ])
 }
 
-export async function fetchTodoList(returnValue) {
-    await Promise.all([
-        axios.get("http://192.168.178.14:5000/api/todos").then(function(response) {
-            returnValue(response.data.todos)
-        })
-    ])
+export async function fetchTodoList(returnValue, hidden) {
+    if (hidden) {
+        await Promise.all([
+            axios.get("http://192.168.178.14:5000/api/todos/hidden=True").then(function(response) {
+                returnValue(response.data.todos)
+            })
+        ])
+    } else {
+        await Promise.all([
+            axios.get("http://192.168.178.14:5000/api/todos").then(function (response) {
+                returnValue(response.data.todos)
+            })
+        ])
+    }
 }
 
 export async function deleteTodo(id) {
