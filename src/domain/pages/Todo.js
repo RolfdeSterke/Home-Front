@@ -140,7 +140,7 @@ class Todo extends Component {
             return (
                 <div className="Container">
                     <Row>
-                        <h1> Hey! this is your list!</h1>
+                        <h1> Hey! this is your list!!</h1>
                         <Button onClick={() => this.setModalToShow(-1)}>Create new</Button>
                     </Row>
                     {modal}
